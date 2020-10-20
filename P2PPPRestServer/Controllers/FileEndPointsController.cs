@@ -15,7 +15,7 @@ namespace P2PPPRestServer.Controllers
         private static Dictionary<string, FileEndPoint> registry = new Dictionary<string, FileEndPoint>()
         {
             //{"unicorn", new FileEndPoint() {"xx", "yy"}},
-            registry.Add("Unicorns", FileEndPoint = new FileEndPoint())
+            registry.Add("Unicorns", new FileEndPoint())
         };
 
         // GET: api/<FileEndPointsController>
