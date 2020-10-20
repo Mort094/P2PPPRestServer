@@ -8,21 +8,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace P2PPPRestServer.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/register")]
     [ApiController]
     public class FileEndPointsController : ControllerBase
     {
-        private static Dictionary<string, FileEndPoint> registry = new Dictionary<string, FileEndPoint>()
-        {
-            //{"unicorn", new FileEndPoint() {"xx", "yy"}},
-            registry.Add("Unicorns", new FileEndPoint())
-        };
+        private static Dictionary<string, FileEndPoint> registry = new Dictionary<string, FileEndPoint>();
 
         // GET: api/<FileEndPointsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("{substring}")]
+        public IEnumerable<FileEndPoint> GetFromSubstring(String substring)
         {
-            return new string[] { "value1", "value2" };
+            if (substring)
+            {
+
+            }
+           
         }
 
         // GET api/<FileEndPointsController>/5
