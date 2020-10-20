@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,18 +13,18 @@ namespace P2PPPRestServer.Controllers
     [ApiController]
     public class FileEndPointsController : ControllerBase
     {
-        private static Dictionary<string, FileEndPoint> registry = new Dictionary<string, FileEndPoint>();
+        private static Dictionary<string, List<FileEndPoint>> registry = new Dictionary<string, List<FileEndPoint>>();
 
         // GET: api/<FileEndPointsController>
         [HttpGet]
         [Route("{substring}")]
         public IEnumerable<FileEndPoint> GetFromSubstring(String substring)
         {
-            if (substring)
+            if (registry.ContainsKey(substring))
             {
-
+                return registry[substring];
             }
-           
+            return new List<FileEndPoint>();
         }
 
         // GET api/<FileEndPointsController>/5
